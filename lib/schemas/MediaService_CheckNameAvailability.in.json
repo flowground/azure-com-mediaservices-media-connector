@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The request body for CheckNameAvailability API.",
+            "example": {
+                "name": "contosomedia",
+                "type": "mediaservices"
+            },
+            "properties": {
+                "name": {
+                    "description": "The name of the resource. A name must be globally unique.",
+                    "maxLength": 24,
+                    "minLength": 3,
+                    "pattern": "^[a-z0-9]{3,24}$",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of the resource - mediaservices.",
+                    "enum": [
+                        "mediaservices"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "ResourceType"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
